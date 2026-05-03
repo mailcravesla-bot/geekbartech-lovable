@@ -13,6 +13,10 @@ export default defineConfig(({ mode }) => ({
     },
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  build: {
+    outDir: ".",
+    emptyOutDir: false,
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
