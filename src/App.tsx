@@ -11,7 +11,7 @@ import Product from "./pages/Product";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient({
-  defaultOptions: { queries: { staleTime: 60_000, refetchOnWindowFocus: false } },
+  defaultOptions: { queries: { staleTime: 60_000, refetchOnWindowFocus: false, throwOnError: false } },
 });
 
 const App = () => (
@@ -19,7 +19,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Index />} />
