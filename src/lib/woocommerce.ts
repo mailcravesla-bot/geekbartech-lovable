@@ -33,7 +33,17 @@ async function wc<T>(path: string, params: Record<string, string | number> = {})
       Authorization: `Bearer ${ANON}`,
     },
   });
-  if (!res.ok) throw new Error(`WooCommerce request failed: ${res.status}`);
+  const contentType = res.headers.get("content-type") || "";
+  if (!res.ok) {
+    const detail = contentType.includes("application/json") ? await res.json().catch(() => null) : await res.text();
+    console.error("WooCommerce request failed", { status: res.status, detail });
+    throw new Error(`WooCommerce request failed: ${res.status}`);
+  }
+  if (!contentType.includes("application/json")) {
+    const preview = await res.text();
+    console.error("WooCommerce proxy returned non-JSON response", preview.slice(0, 200));
+    throw new Error("WooCommerce returned an invalid response");
+  }
   return res.json();
 }
 
