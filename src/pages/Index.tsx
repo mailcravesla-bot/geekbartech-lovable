@@ -7,9 +7,10 @@ import { wcApi } from "@/lib/woocommerce";
 import { Button } from "@/components/ui/button";
 
 const Index = () => {
-  const { data: products, isLoading } = useQuery({
+  const { data: products, isError } = useQuery({
     queryKey: ["featured-products"],
     queryFn: () => wcApi.listProducts({ per_page: 8, orderby: "popularity" }),
+    retry: 1,
   });
 
   return (
@@ -53,7 +54,7 @@ const Index = () => {
               />
             ) : (
               <div className="flex h-full w-full items-center justify-center text-muted-foreground">
-                Loading featured product…
+                {isError ? "Products are temporarily unavailable." : "Loading featured product…"}
               </div>
             )}
           </div>
@@ -95,12 +96,16 @@ const Index = () => {
           </Button>
         </div>
 
-        {isLoading ? (
+        {!products && !isError ? (
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
             {Array.from({ length: 8 }).map((_, i) => (
               <div key={i} className="aspect-square animate-pulse rounded-xl bg-muted" />
             ))}
           </div>
+        ) : isError ? (
+          <p className="rounded-lg border border-border bg-muted/30 p-6 text-center text-muted-foreground">
+            Products are temporarily unavailable. Please check back shortly.
+          </p>
         ) : (
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
             {products?.map((p) => (

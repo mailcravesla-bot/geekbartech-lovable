@@ -4,7 +4,7 @@
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type",
+    "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
   "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
 };
 
@@ -92,13 +92,26 @@ Deno.serve(async (req) => {
 
     const wcRes = await fetch(target.toString(), init);
     const body = await wcRes.text();
+    const contentType = wcRes.headers.get("Content-Type") ?? "application/json";
+
+    if (wcRes.ok && contentType.includes("text/html")) {
+      return new Response(
+        JSON.stringify({
+          error: "WooCommerce API returned HTML instead of JSON",
+          detail: "Check that the configured store URL points to the WordPress/WooCommerce site.",
+        }),
+        {
+          status: 502,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        },
+      );
+    }
 
     return new Response(body, {
       status: wcRes.status,
       headers: {
         ...corsHeaders,
-        "Content-Type":
-          wcRes.headers.get("Content-Type") ?? "application/json",
+        "Content-Type": contentType,
       },
     });
   } catch (err) {
