@@ -1,1 +1,4 @@
 project_id = "ftgpjmqsquqhffjgieqz"
+
+[functions.wc-proxy]
+verify_jwt = false
