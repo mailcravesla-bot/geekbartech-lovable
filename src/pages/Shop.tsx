@@ -13,12 +13,14 @@ const Shop = () => {
   const { data: categories } = useQuery({
     queryKey: ["wc-categories"],
     queryFn: () => wcApi.listCategories(),
+    retry: 1,
   });
 
-  const { data: products, isLoading } = useQuery({
+  const { data: products, isLoading, isError } = useQuery({
     queryKey: ["wc-products", category],
     queryFn: () =>
       wcApi.listProducts(category ? { per_page: 48, category } : { per_page: 48 }),
+    retry: 1,
   });
 
   const filtered = useMemo(() => {
@@ -78,6 +80,10 @@ const Shop = () => {
               <div key={i} className="aspect-square animate-pulse rounded-xl bg-muted" />
             ))}
           </div>
+        ) : isError ? (
+          <p className="rounded-lg border border-border bg-muted/30 p-6 text-center text-muted-foreground">
+            Products are temporarily unavailable. Please check back shortly.
+          </p>
         ) : filtered.length === 0 ? (
           <p className="py-16 text-center text-muted-foreground">No products found.</p>
         ) : (
