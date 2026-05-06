@@ -1,34 +1,41 @@
 import Seo from "@/components/Seo";
+import { motion } from "framer-motion";
 
 const About = () => (
   <>
     <Seo
-      title="About — Geek Bar Tech Shop"
-      description="Learn about Geek Bar Tech Shop — our story, mission, and commitment to curated, premium tech."
+      title="About Geekbartech | Premium Vape Tech Retail"
+      description="Geekbartech curates the full Geek Bar lineup with fast, discreet shipping and authentic, verified products. Adults 21+ only."
     />
-    <section className="border-b border-border/60 bg-muted/30">
-      <div className="container py-12">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">About Geek Bar Tech Shop</h1>
-        <p className="mt-2 max-w-2xl text-muted-foreground">
-          We curate premium tech and accessories from trusted brands so you can shop with confidence.
-        </p>
+    <section className="bg-hero border-b border-border">
+      <div className="container py-20">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+          <p className="text-sm uppercase tracking-widest text-primary mb-2">About</p>
+          <h1 className="text-4xl sm:text-6xl">A higher bar for vape retail.</h1>
+        </motion.div>
       </div>
     </section>
 
-    <section className="container max-w-3xl space-y-6 py-12 text-base leading-relaxed text-foreground">
-      <p>
-        Geek Bar Tech Shop was built for people who care about the gear they use every day.
-        From the latest gadgets to everyday essentials, every product in our catalog is
-        hand-picked for quality, value and design.
+    <section className="container py-16 grid gap-10 md:grid-cols-2">
+      <p className="text-lg text-muted-foreground leading-relaxed">
+        Geekbartech is the elevated retail home for the Geek Bar lineup. We obsess over authenticity, freshness, and
+        the experience of unboxing a brand-new device — fast, discreet, and exactly as it should be.
       </p>
-      <p>
-        We believe great tech should be easy to discover and easy to buy. That&apos;s why we
-        focus on a clean storefront, clear product information, and fast, secure checkout.
+      <p className="text-lg text-muted-foreground leading-relaxed">
+        Every product on this site is sourced through verified channels. Pulse, Pulse X, Skyview, Digiflavor and
+        every other Geek Bar series is shipped from real, fresh stock.
       </p>
-      <p>
-        Have a question or a product request? Reach out — we love hearing from fellow tech
-        enthusiasts.
-      </p>
+    </section>
+
+    <section className="container pb-20">
+      <div className="rounded-3xl border border-border bg-gradient-card p-8 sm:p-12">
+        <h2 className="text-2xl sm:text-3xl mb-3">Adults 21+ only.</h2>
+        <p className="text-sm text-muted-foreground max-w-2xl">
+          WARNING: This product contains nicotine. Nicotine is an addictive chemical. Sales are restricted to
+          adults of legal age (21+ in the United States, or the legal age in your jurisdiction). Underage sales
+          are strictly prohibited.
+        </p>
+      </div>
     </section>
   </>
 );
