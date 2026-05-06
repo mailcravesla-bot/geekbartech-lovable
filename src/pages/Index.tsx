@@ -112,7 +112,7 @@ const Index = () => {
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-4 md:grid-rows-2 md:[&>*]:min-h-[280px]">
           {bento[0] && (
-            <BentoCard product={bento[0]} className="md:col-span-2 md:row-span-2 md:min-h-[580px]!" featured />
+            <BentoCard product={bento[0]} className="md:col-span-2 md:row-span-2 md:min-h-[580px]" featured />
           )}
           {bento[1] && <BentoCard product={bento[1]} className="md:col-span-2" />}
           {bento[2] && <BentoCard product={bento[2]} />}
