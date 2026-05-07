@@ -4,8 +4,7 @@ import { ArrowRight, Truck, ShieldCheck, Sparkles, Zap, Star, Award, Cpu, Batter
 import Seo from "@/components/Seo";
 import ProductCard from "@/components/ProductCard";
 import { Button } from "@/components/ui/button";
-import { products, getFeatured } from "@/data/products";
-import heroImg from "@/assets/hero.jpg";
+import { products, getFeatured, HERO_VIDEO, HERO_POSTER } from "@/data/products";
 
 const Index = () => {
   const featured = getFeatured();
