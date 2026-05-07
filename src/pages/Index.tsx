@@ -4,8 +4,7 @@ import { ArrowRight, Truck, ShieldCheck, Sparkles, Zap, Star, Award, Cpu, Batter
 import Seo from "@/components/Seo";
 import ProductCard from "@/components/ProductCard";
 import { Button } from "@/components/ui/button";
-import { products, getFeatured } from "@/data/products";
-import heroImg from "@/assets/hero.jpg";
+import { products, getFeatured, HERO_VIDEO, HERO_POSTER } from "@/data/products";
 
 const Index = () => {
   const featured = getFeatured();
@@ -28,11 +27,15 @@ const Index = () => {
       {/* Hero — full bleed cinematic */}
       <section className="relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <img
-            src={heroImg}
-            alt="Premium Geek Bar disposable vape with neon smoke"
+          <video
+            src={HERO_VIDEO}
+            poster={HERO_POSTER}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
             className="h-full w-full object-cover opacity-80"
-            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
