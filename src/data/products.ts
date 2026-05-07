@@ -43,7 +43,7 @@ export const products: Product[] = [
     description:
       "The Pulse X is the flagship of the Geek Bar family. A dual-mode mesh coil, smart OLED display and ergonomic chassis deliver flavor that lasts.",
     price: 19.99,
-    image: "" + "PULSEX",
+    image: pulseXImg,
     flavors: [
       { name: "Strawberry Mango", color: "340 95% 65%" },
       { name: "Blue Razz Ice", color: "215 95% 60%" },
@@ -71,7 +71,7 @@ export const products: Product[] = [
     description:
       "The original Pulse — the disposable that started it all. Dual mode toggles between Pulse and Regular for personalized intensity.",
     price: 16.99,
-    image: "" + "PULSE",
+    image: pulseImg,
     flavors: [
       { name: "Miami Mint", color: "165 75% 55%" },
       { name: "Sour Apple Ice", color: "95 80% 55%" },
@@ -98,7 +98,7 @@ export const products: Product[] = [
     description:
       "Skyview pairs a vivid HD animation display with smart e-liquid and battery indicators. Premium flavor, premium presentation.",
     price: 22.99,
-    image: "" + "SKYVIEW",
+    image: skyviewImg,
     flavors: [
       { name: "Strawberry Banana", color: "350 90% 65%" },
       { name: "Blue Razz Lemon", color: "210 90% 60%" },
@@ -124,7 +124,7 @@ export const products: Product[] = [
     description:
       "Switch between profiles on the fly. Digiflavor's chip dynamically tunes wattage to coax the best from every puff.",
     price: 24.99,
-    image: "" + "DIGI",
+    image: digiflavorImg,
     flavors: [
       { name: "Mango Peach", color: "30 95% 60%" },
       { name: "Mixed Berries", color: "320 80% 55%" },
@@ -148,7 +148,7 @@ export const products: Product[] = [
     description:
       "The Meloso Max delivers concentrated flavor in a slim, pocketable shell. Built for understated, all-day vaping.",
     price: 14.99,
-    image: "" + "MELOSO",
+    image: melosoImg,
     flavors: [
       { name: "Lemon Mint", color: "55 95% 55%" },
       { name: "Watermelon Bubblegum", color: "340 85% 65%" },
@@ -171,7 +171,7 @@ export const products: Product[] = [
     description:
       "5,000 puffs of consistent, true-to-flavor performance in a compact form. The B5000 is the classic Geek Bar reimagined.",
     price: 11.99,
-    image: "" + "B5000",
+    image: b5000Img,
     flavors: [
       { name: "Strawberry Ice", color: "350 90% 65%" },
       { name: "Mango Ice", color: "35 95% 60%" },
