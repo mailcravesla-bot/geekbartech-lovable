@@ -26,7 +26,14 @@ export interface Product {
   badge?: string;
 }
 
-// Curated catalog inspired by the Geek Bar lineup. Images use Unsplash (lazy-loaded).
+import pulseXImg from "@/assets/pulse-x.jpg";
+import pulseImg from "@/assets/pulse.jpg";
+import skyviewImg from "@/assets/skyview.jpg";
+import digiflavorImg from "@/assets/digiflavor.jpg";
+import melosoImg from "@/assets/meloso.jpg";
+import b5000Img from "@/assets/b5000.jpg";
+
+// Curated catalog of the Geek Bar lineup.
 export const products: Product[] = [
   {
     slug: "geek-bar-pulse-x",
